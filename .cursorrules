@@ -1,0 +1,67 @@
+# Hardhat EVM State Setter Plugin Rules
+
+## Project Overview
+This project is a Hardhat plugin that allows direct manipulation of smart contract state variables by writing to specific storage slots in the EVM. It uses contract storage layouts to determine the exact slots and encoding for each variable, enabling precise state manipulation without requiring transaction execution.
+
+## Goals
+- Provide a simple API for setting contract state variables directly
+- Support complex data types including mappings, arrays, structs, and nested combinations
+- Work with inherited contracts and their state variables
+- Automate the extraction and use of storage layout information
+- Provide clear error messages when state setting fails
+
+## Architecture
+- **Plugin Integration**: Extends Hardhat's runtime environment with a `stateSetter` object
+- **Storage Layout Extraction**: Uses Hardhat's storage layout information to locate variables
+- **Path Resolution**: Resolves complex paths for nested data structures
+- **Direct EVM Manipulation**: Uses `hardhat_setStorageAt` RPC method to write to storage
+
+## Workflows
+
+### Adding the plugin to a Hardhat project
+1. Install the package: `npm install hardhat-evm-state-setter --save-dev`
+2. Add to hardhat.config.js/ts: `import 'hardhat-evm-state-setter'`
+3. Configure artifacts and storage layouts paths in config
+
+### Setting contract state
+1. Deploy a contract or get its address
+2. Use one of the plugin's methods to set state:
+   - `hre.stateSetter.setSimpleState` for simple variables
+   - `hre.stateSetter.setMappingValue` for mapping entries
+   - `hre.stateSetter.setArrayElement` for array elements
+   - `hre.stateSetter.setStructField` for struct fields
+   - `hre.stateSetter.setState` for complex paths
+
+### Working with storage layouts
+1. Make sure hardhat-storage-layout plugin is installed
+2. Run `npx hardhat extract-storage-layout` to extract layouts
+3. Check generated layouts in storage-layouts directory
+
+## Testing Approach
+- **Unit Tests**: Test each function of the plugin with different contract types
+- **Integration Tests**: Test end-to-end workflows in a Hardhat environment
+- **Complex Contract Patterns**: Test with inheritance, nested types, and various Solidity patterns
+- **Work-around approach**: For very complex nested types, use contract functions first to set up the initial state, then set new state using hardhat setState
+- **Progressive Testing**:
+  1. Start with simple types (uint, bool, address)
+  2. Test mappings with simple keys and values
+  3. Test arrays (fixed and dynamic)
+  4. Test structs and their fields
+  5. Test nested structures (mappings within structs, etc.)
+  6. Test inheritance patterns
+
+## Troubleshooting
+- Check that storage layouts are correctly extracted
+- Verify contract name matches the artifact name
+- For structs, ensure complete member information is available
+- For nested mappings, ensure each key is correctly formatted
+- For arrays, use numerical indices (not 'length' directly)
+- For complex patterns, consider using contract functions to initialize state
+
+## Best Practices
+- Always test with simplified contracts first
+- Understand the storage layout of your contracts
+- Use appropriate encoding for different data types
+- Handle errors gracefully when working with complex types
+- Keep test contracts focused on specific storage patterns
+- Provide clear reporting on what state was changed 

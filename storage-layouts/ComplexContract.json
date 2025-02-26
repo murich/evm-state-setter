@@ -1,0 +1,144 @@
+{
+  "storage": [
+    {
+      "astId": 3,
+      "contract": "contracts/ComplexContract.sol:ComplexContract",
+      "label": "baseValue",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 7,
+      "contract": "contracts/ComplexContract.sol:ComplexContract",
+      "label": "baseMapping",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_mapping(t_uint256,t_bool)"
+    },
+    {
+      "astId": 81,
+      "contract": "contracts/ComplexContract.sol:ComplexContract",
+      "label": "childData",
+      "offset": 0,
+      "slot": "2",
+      "type": "t_struct(ChildData)78_storage"
+    },
+    {
+      "astId": 86,
+      "contract": "contracts/ComplexContract.sol:ComplexContract",
+      "label": "dataByAddress",
+      "offset": 0,
+      "slot": "5",
+      "type": "t_mapping(t_address,t_struct(ChildData)78_storage)"
+    },
+    {
+      "astId": 246,
+      "contract": "contracts/ComplexContract.sol:ComplexContract",
+      "label": "contractStatus",
+      "offset": 0,
+      "slot": "6",
+      "type": "t_enum(Status)243"
+    },
+    {
+      "astId": 253,
+      "contract": "contracts/ComplexContract.sol:ComplexContract",
+      "label": "statusByAddrAndId",
+      "offset": 0,
+      "slot": "7",
+      "type": "t_mapping(t_address,t_mapping(t_uint256,t_enum(Status)243))"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_uint256)dyn_storage": {
+      "base": "t_uint256",
+      "encoding": "dynamic_array",
+      "label": "uint256[]",
+      "numberOfBytes": "32"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_enum(Status)243": {
+      "encoding": "inplace",
+      "label": "enum ComplexContract.Status",
+      "numberOfBytes": "1"
+    },
+    "t_mapping(t_address,t_mapping(t_uint256,t_enum(Status)243))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(uint256 => enum ComplexContract.Status))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint256,t_enum(Status)243)"
+    },
+    "t_mapping(t_address,t_struct(ChildData)78_storage)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => struct Child.ChildData)",
+      "numberOfBytes": "32",
+      "value": "t_struct(ChildData)78_storage"
+    },
+    "t_mapping(t_uint256,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_uint256,t_enum(Status)243)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => enum ComplexContract.Status)",
+      "numberOfBytes": "32",
+      "value": "t_enum(Status)243"
+    },
+    "t_string_storage": {
+      "encoding": "bytes",
+      "label": "string",
+      "numberOfBytes": "32"
+    },
+    "t_struct(ChildData)78_storage": {
+      "encoding": "inplace",
+      "label": "struct Child.ChildData",
+      "members": [
+        {
+          "astId": 72,
+          "contract": "contracts/ComplexContract.sol:ComplexContract",
+          "label": "name",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_string_storage"
+        },
+        {
+          "astId": 75,
+          "contract": "contracts/ComplexContract.sol:ComplexContract",
+          "label": "values",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_array(t_uint256)dyn_storage"
+        },
+        {
+          "astId": 77,
+          "contract": "contracts/ComplexContract.sol:ComplexContract",
+          "label": "active",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_bool"
+        }
+      ],
+      "numberOfBytes": "96"
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    }
+  }
+}

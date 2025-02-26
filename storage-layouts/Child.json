@@ -1,0 +1,109 @@
+{
+  "storage": [
+    {
+      "astId": 3,
+      "contract": "contracts/ComplexContract.sol:Child",
+      "label": "baseValue",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 7,
+      "contract": "contracts/ComplexContract.sol:Child",
+      "label": "baseMapping",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_mapping(t_uint256,t_bool)"
+    },
+    {
+      "astId": 81,
+      "contract": "contracts/ComplexContract.sol:Child",
+      "label": "childData",
+      "offset": 0,
+      "slot": "2",
+      "type": "t_struct(ChildData)78_storage"
+    },
+    {
+      "astId": 86,
+      "contract": "contracts/ComplexContract.sol:Child",
+      "label": "dataByAddress",
+      "offset": 0,
+      "slot": "5",
+      "type": "t_mapping(t_address,t_struct(ChildData)78_storage)"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_uint256)dyn_storage": {
+      "base": "t_uint256",
+      "encoding": "dynamic_array",
+      "label": "uint256[]",
+      "numberOfBytes": "32"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_mapping(t_address,t_struct(ChildData)78_storage)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => struct Child.ChildData)",
+      "numberOfBytes": "32",
+      "value": "t_struct(ChildData)78_storage"
+    },
+    "t_mapping(t_uint256,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_string_storage": {
+      "encoding": "bytes",
+      "label": "string",
+      "numberOfBytes": "32"
+    },
+    "t_struct(ChildData)78_storage": {
+      "encoding": "inplace",
+      "label": "struct Child.ChildData",
+      "members": [
+        {
+          "astId": 72,
+          "contract": "contracts/ComplexContract.sol:Child",
+          "label": "name",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_string_storage"
+        },
+        {
+          "astId": 75,
+          "contract": "contracts/ComplexContract.sol:Child",
+          "label": "values",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_array(t_uint256)dyn_storage"
+        },
+        {
+          "astId": 77,
+          "contract": "contracts/ComplexContract.sol:Child",
+          "label": "active",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_bool"
+        }
+      ],
+      "numberOfBytes": "96"
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "hardhat-evm-state-setter",
+  "version": "0.1.0",
+  "description": "Hardhat plugin for setting contract state variables directly in EVM storage using storage layouts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist artifacts cache",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "hardhat test",
+    "compile": "hardhat compile"
+  },
+  "keywords": [
+    "ethereum",
+    "hardhat",
+    "hardhat-plugin",
+    "testing",
+    "state",
+    "storage",
+    "evm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "ethers": "^6.1.0",
+    "hardhat": "^2.22.19",
+    "hardhat-storage-layout": "^0.1.7",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "ethers": "^6.1.0",
+    "hardhat": "^2.0.0",
+    "hardhat-storage-layout": "^0.1.7"
+  }
+}
